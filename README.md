@@ -1,6 +1,8 @@
 # multiList
 MultiList allows you to customize a selector(Use Select2(4.0.0)), wherein the selected traits are in a sortable list (Use Nestable2)
 
+> bower install multiList
+
 ## Dependences
 * https://select2.github.io/
 * http://ramonsmit.github.io/Nestable/
