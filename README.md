@@ -2,8 +2,8 @@
 MultiList allows you to customize a selector(Use Select2(4.0.0)), wherein the selected traits are in a sortable list (Use Nestable2)
 
 ## Dependences
-https://select2.github.io/
-http://ramonsmit.github.io/Nestable/
+* https://select2.github.io/
+* http://ramonsmit.github.io/Nestable/
 
 ## Getting started 
 you can create a MultiList in two ways:
