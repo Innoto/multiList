@@ -1,8 +1,8 @@
 {
   "name": "multiList",
   "main": [
-	"multiList.js",
-	"multiList.css"
+    "multiList.js",
+    "multiList.css"
   ],
   "version": "0.0.1",
   "homepage": "https://github.com/Innoto/multiList",
@@ -21,10 +21,5 @@
     "select",
     "order"
   ],
-  "dependencies": {
-    "nestable2": "",
-    "select2": ">=4.0.0",
-  },
-  "license": "GNU GPL3",
-  "private": true
+  "license": "GNU GPL3"
 }
