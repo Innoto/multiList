@@ -7,8 +7,15 @@ MultiList allows you to customize a selector(Use Select2(4.0.0)), wherein the se
 
 ## Getting started 
 you can create a MultiList in two ways:
-* 1) passing a query of an element $('# selector'). MultiList().
+* 1) passing a query of an element 
+```
+$('#asigned_terms3').multiList();
+```
 * 2) passing a query multiple $('select').MultiMultiList().
+```
+$('.classAllSelect').multiMultiList();
+$('select').multiMultiList();
+```
 
 ## Params
 MultiList moment only accepts two parameters:
