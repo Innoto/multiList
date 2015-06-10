@@ -7,8 +7,8 @@ http://ramonsmit.github.io/Nestable/
 
 ## Getting started 
 you can create a MultiList in two ways:
-1) passing a query of an element $('# selector'). MultiList().
-2) passing a query multiple $('select').MultiMultiList().
+> 1) passing a query of an element $('# selector'). MultiList().
+> 2) passing a query multiple $('select').MultiMultiList().
 
 ## Params
 MultiList moment only accepts two parameters:
