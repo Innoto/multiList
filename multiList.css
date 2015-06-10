@@ -1,0 +1,121 @@
+.dd {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 20px;
+}
+.dd-list {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.dd-empty,
+.dd-placeholder {
+  margin: 5px 0;
+  padding: 0;
+  min-height: 30px;
+  background: #CCCCCC;
+  border: 2px dashed #b6bcbf;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.dd-empty {
+  border: 1px dashed #bbb;
+  min-height: 100px;
+  background-color: #e5e5e5;
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+.dd-dragel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.multiListNestable{
+  border: 1px solid #CECECE;
+  background: #F5F5F5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.multiListDragel{
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+.multiListDragel.multiListH{
+  width:auto !important;
+}
+
+.multiListDragel .dd-item,
+.multiListNestable .dd-item{
+  padding: 2px 5px;
+  margin: 2px;
+  background: #e4e4e4;
+  border :1px solid #CECECE;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.multiListDragel.multiListH .dd-item,
+.multiListNestable.multiListH .dd-item{
+  float: left;
+  width: auto !important;
+}
+
+.multiListDragel .dd-item .unselectNestable,
+.multiListNestable .dd-item .unselectNestable {
+  margin-left: 5px;
+  color: #999;
+  cursor: pointer;
+  display: inline-block;
+  float:right;
+  font-weight: bold;
+}
+
+.multiListDragel.multiListH .dd-item .dd-handle,
+.multiListNestable.multiListH .dd-item .dd-handle {
+  float:left;
+}
+
+.multiListNestable .dd-placeholder{
+  width:100%;
+  margin: 2px;
+}
+.multiListNestable.multiListH .dd-placeholder{
+  width:auto;
+  min-width:100px;
+  float:left;
+}
+
+.multiListSelect2 .select2-selection__choice{
+  display: none;
+}
+
+.multiListSelect2 .select2-results__option[aria-selected="true"]{
+  display: none;
+}
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  display: none;
+}
