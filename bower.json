@@ -21,5 +21,17 @@
     "select",
     "order"
   ],
-  "license": "GNU GPL3"
+  "license": "GNU GPL3",
+  "dependencies": {
+    "nestable2": "#v1.2.3",
+    "select2": "#4.0.0"
+  },
+  ignore: [
+    '**/.*',
+    'node_modules',
+    'bower_components',
+    'test',
+    'tests'
+  ],
+  "private": true
 }
