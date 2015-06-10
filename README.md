@@ -19,8 +19,11 @@ $('select').multiMultiList();
 
 ## Params
 MultiList moment only accepts two parameters:
-orientation: Vertical or Horizontal
-placeholder: String
+* orientation: Vertical or Horizontal (Vertical mues)
+* placeholder: String
+
+Vertical lists ordering them selected from the top down. Horizontal shows another type of styles that allow you to sort horizontally.
+
 
 Example: 
 ```
