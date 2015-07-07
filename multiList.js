@@ -137,12 +137,20 @@
       });
     }
     /*
+      Reload MultiList
+    */
+    that.reloadMultiList = function( ){
+      that.initOptionsValues();
+      that.getSelectedValues();
+      that.execNestable();
+      that.multiListBinds();
+    }
+    /*
       Metedo con los binds genericos del MultiList
     */
     that.multiListBinds = function( ){
       selector.on("change", function (e) {
-        that.getSelectedValues();
-        that.execNestable();
+        that.reloadMultiList();
       });
       multiListNestable.on("click", function (e) {
         selector.select2("open");
