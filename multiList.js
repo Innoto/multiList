@@ -13,6 +13,8 @@
 
     var defaults = {
       orientation: 'vertical',
+      itemActions: false,
+      icon: false,
       placeholder: 'Select options'
     };
     var settings = $.extend( {}, defaults, options );
@@ -20,6 +22,7 @@
     /*
       Inicializa el selector nativo con data-multiList-id y data-order
     */
+
     that.initOptionsValues = function (){
       var optN = 1;
       selector.find('option').each(function( index ) {
@@ -53,11 +56,20 @@
         dataSelected.push({
           id: $( this ).attr('data-multiList-id'),
           name: $( this ).text(),
-          weight: $( this ).attr('data-order')
+          weight: $( this ).attr('data-order'),
+          value: $( this ).val()
         });
       });
       selector.find('option').not('option:selected').attr('data-order', parseInt(dataSelected.length+1));
       dataSelected.sort(function(a,b) { return parseInt(a.weight) - parseInt(b.weight) } );
+    }
+    /*
+      Recibe como parametro un multiListId y devuelve un objeto con todos los datos del option
+    */
+    that.getMultilistItem = function( id ){
+      return $.grep(dataSelected, function(e){
+        return e.id == id;
+      })[0];
     }
     /*
       Ejecuta y genera el html necesario para Nestable2 y por ultimo hace un Bind para desseleccionar un elemento.
@@ -68,7 +80,20 @@
         $.each( dataSelected, function( key, elem ) {
           var nestableItem = '<li class="dd-item" data-id="'+elem.id+'">';
           nestableItem += '<div class="unselectNestable">X</div>';
-          nestableItem += '<div class="dd-handle">'+elem.name+'</div>';
+          nestableItem += '<ul class="dd-multiListActions clearfix">';
+          $.each(settings.itemActions, function( i, act ) {
+            nestableItem += '<li class="dd-multiList-action-'+act.id+'" data-action-id="'+act.id+'">';
+              nestableItem += act.html;
+            nestableItem += "</li>";
+          });
+          nestableItem += '</ul>';
+          nestableItem += '<div class="dd-handle">';
+            nestableItem += '<div class="dd-multiListIcon">';
+              if(settings.icon){
+                nestableItem += settings.icon;
+              }
+            nestableItem += '</div>';
+          nestableItem += elem.name+'</div>';
           nestableItem += '</li>';
 
           multiListNestable.find('.dd-list').append(nestableItem);
@@ -122,6 +147,17 @@
       multiListNestable.on("click", function (e) {
         selector.select2("open");
       });
+
+      if(settings.itemActions){
+        multiListNestable.find('.dd-multiListActions li').on("click", function (e) {
+          var itemClicked = $(e.currentTarget).attr('data-action-id');
+          $.each(settings.itemActions, function( i, act ) {
+            if(itemClicked === act.id){
+              act.action( that.getMultilistItem( $(e.currentTarget).closest('li.dd-item').attr('data-id')));
+            }
+          });
+        });
+      }
     }
     /*
       Init

@@ -94,9 +94,31 @@
   font-weight: bold;
 }
 
+.multiListDragel .dd-item .dd-multiListActions,
+.multiListNestable .dd-item .dd-multiListActions{
+  margin-left: 5px;
+  cursor: pointer;
+  display: inline-block;
+  float:right;
+  font-weight: bold;
+  list-style:none;
+}
+.multiListDragel .dd-item .dd-multiListActions li,
+.multiListNestable .dd-item .dd-multiListActions li{
+    float: left;
+    font-size:18px;
+    margin:0px 3px;
+}
+
 .multiListDragel.multiListH .dd-item .dd-handle,
 .multiListNestable.multiListH .dd-item .dd-handle {
   float:left;
+}
+
+.multiListDragel .dd-item .dd-handle .dd-multiListIcon,
+.multiListNestable .dd-item .dd-handle .dd-multiListIcon{
+  float:left;
+  margin-right:5px;
 }
 
 .multiListNestable .dd-placeholder{
