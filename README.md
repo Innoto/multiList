@@ -20,9 +20,11 @@ $('select').multiMultiList();
 ```
 
 ## Params
-MultiList moment only accepts two parameters:
+MultiList parameters:
 * orientation: Vertical or Horizontal
 * placeholder: String
+* icon: String html
+* itemActions: Array Objects{ id, html, action(function)}
 
 Vertical lists ordering them selected from the top down. Horizontal shows another type of styles that allow you to sort horizontally.
 
@@ -31,7 +33,12 @@ Example:
 ```
 $('#asigned_terms3').multiList({
   orientation: 'horizontal',
-  placeholder: 'Select options'
+  placeholder: 'Select options',
+  itemActions: [
+    { 'id': 'edit', 'html': '<i class="fa fa-pencil-square-o"></i>', 'action': editCollection },
+    { 'id': 'show', 'html': '<i class="fa fa-circle-thin"></i>', 'action': showCollection }
+  ],
+  'icon': '<i class="fa fa-arrows"></i>'
 });
 ```
 ## multiMultiList
