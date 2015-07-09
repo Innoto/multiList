@@ -60,7 +60,7 @@
           value: $( this ).val()
         });
       });
-      selector.find('option').not('option:selected').attr('data-order', parseInt(dataSelected.length+1));
+      selector.find('option').not('option:selected').attr('data-order', parseInt((dataSelected.length)+1));
       dataSelected.sort(function(a,b) { return parseInt(a.weight) - parseInt(b.weight) } );
     }
     /*
@@ -81,11 +81,13 @@
           var nestableItem = '<li class="dd-item" data-id="'+elem.id+'">';
           nestableItem += '<div class="unselectNestable">X</div>';
           nestableItem += '<ul class="dd-multiListActions clearfix">';
-          $.each(settings.itemActions, function( i, act ) {
-            nestableItem += '<li class="dd-multiList-action-'+act.id+'" data-action-id="'+act.id+'">';
-              nestableItem += act.html;
-            nestableItem += "</li>";
-          });
+          if(settings.itemActions){
+            $.each(settings.itemActions, function( i, act ) {
+              nestableItem += '<li class="dd-multiList-action-'+act.id+'" data-action-id="'+act.id+'">';
+                nestableItem += act.html;
+              nestableItem += "</li>";
+            });
+          }
           nestableItem += '</ul>';
           nestableItem += '<div class="dd-handle">';
             nestableItem += '<div class="dd-multiListIcon">';
@@ -157,6 +159,7 @@
       });
 
       if(settings.itemActions){
+        console.log("aaaa");
         multiListNestable.find('.dd-multiListActions li').on("click", function (e) {
           var itemClicked = $(e.currentTarget).attr('data-action-id');
           $.each(settings.itemActions, function( i, act ) {
