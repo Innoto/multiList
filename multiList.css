@@ -84,6 +84,21 @@
   width: auto !important;
 }
 
+.multiListDragel.multiListH.multiListImages .dd-item,
+.multiListNestable.multiListH.multiListImages .dd-item{
+  float: left;
+  width: auto !important;
+  max-height: 150px;
+  padding: 5px;
+  background: white;
+}
+
+.multiListDragel.multiListH.multiListImages .dd-item .multiListImage img,
+.multiListNestable.multiListH.multiListImages .dd-item .multiListImage img{
+  height: 140px;
+}
+
+
 .multiListDragel .dd-item .unselectNestable,
 .multiListNestable .dd-item .unselectNestable {
   margin-left: 5px;
@@ -92,6 +107,42 @@
   display: inline-block;
   float:right;
   font-weight: bold;
+}
+
+.multiListDragel.multiListImages .dd-item .unselectNestable,
+.multiListNestable.multiListImages .dd-item .unselectNestable {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  color: white;
+  text-shadow: 1px 0 8px rgba(0,0,0, 0.8);
+}
+.multiListDragel.multiListImages .dd-item .multiListText,
+.multiListNestable.multiListImages .dd-item .multiListText {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: white;
+  text-shadow: 1px 0 8px rgba(0,0,0, 0.8);
+  font-size: 16px;
+  font-weight: bold;
+}
+.multiListDragel.multiListImages .dd-item .dd-multiListIcon,
+.multiListNestable.multiListImages .dd-item .dd-multiListIcon {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  color: white;
+  text-shadow: 1px 0 8px rgba(0,0,0, 0.8);
+}
+.multiListDragel.multiListImages .dd-item .dd-multiListActions,
+.multiListNestable.multiListImages .dd-item .dd-multiListActions{
+  position: absolute;
+  right: 20px;
+  top: 7px;
+
+  color: white;
+  text-shadow: 1px 0 8px rgba(0,0,0, 0.8);
 }
 
 .multiListDragel .dd-item .dd-multiListActions,
@@ -127,8 +178,11 @@
 }
 .multiListNestable.multiListH .dd-placeholder{
   width:auto;
-  min-width:100px;
+  min-width:120px;
   float:left;
+}
+.multiListNestable.multiListH.multiListImages .dd-placeholder{
+  min-width:240px;
 }
 
 .multiListSelect2 .select2-selection__choice{

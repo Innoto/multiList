@@ -14,11 +14,16 @@
     var defaults = {
       orientation: 'vertical',
       itemActions: false,
+      itemImage: false,
       icon: false,
       placeholder: 'Select options'
     };
     var settings = $.extend( {}, defaults, options );
     settings.orientation = settings.orientation.charAt(0).toUpperCase();
+    if(settings.itemImage){
+      settings.orientation = 'H';
+    }
+
     /*
       Inicializa el selector nativo con data-multiList-id y data-order
     */
@@ -34,9 +39,14 @@
       Genera el html necesario para el MultiList y mueve el selector dentro de esa estructura
     */
     that.createInterface = function (){
+      var multiListImages = "";
+      if(settings.itemImage){
+        multiListImages = "multiListImages"
+      }
+
       var multiListHtml = "";
       multiListHtml+= '<div id="'+multiListId+'" class="multiListContainer">';
-        multiListHtml+= '<div class="multiListNestable multiList'+settings.orientation+' dd"><ol class="dd-list clearfix"></ol></div>';
+        multiListHtml+= '<div class="multiListNestable '+multiListImages+' multiList'+settings.orientation+' dd"><ol class="dd-list clearfix"></ol></div>';
         multiListHtml+= '<div class="multiListSelect2"></div>';
       multiListHtml+= '</div>';
 
@@ -53,12 +63,16 @@
     that.getSelectedValues = function( ){
       dataSelected = [];
       selector.find('option:selected').each(function( index ) {
-        dataSelected.push({
+        var data = {
           id: $( this ).attr('data-multiList-id'),
           name: $( this ).text(),
           weight: $( this ).attr('data-order'),
           value: $( this ).val()
-        });
+        }
+        if(settings.itemImage){
+          data.image = $( this ).attr('data-image');
+        }
+        dataSelected.push(data);
       });
       selector.find('option').not('option:selected').attr('data-order', parseInt((dataSelected.length)+1));
       dataSelected.sort(function(a,b) { return parseInt(a.weight) - parseInt(b.weight) } );
@@ -79,23 +93,29 @@
       if( dataSelected.length > 0 ){
         $.each( dataSelected, function( key, elem ) {
           var nestableItem = '<li class="dd-item" data-id="'+elem.id+'">';
-          nestableItem += '<div class="unselectNestable">X</div>';
-          nestableItem += '<ul class="dd-multiListActions clearfix">';
-          if(settings.itemActions){
-            $.each(settings.itemActions, function( i, act ) {
-              nestableItem += '<li class="dd-multiList-action-'+act.id+'" data-action-id="'+act.id+'">';
-                nestableItem += act.html;
-              nestableItem += "</li>";
-            });
-          }
-          nestableItem += '</ul>';
-          nestableItem += '<div class="dd-handle">';
-            nestableItem += '<div class="dd-multiListIcon">';
-              if(settings.icon){
-                nestableItem += settings.icon;
+            nestableItem += '<div class="unselectNestable">X</div>';
+            if(settings.itemActions){
+              nestableItem += '<ul class="dd-multiListActions clearfix">';
+                $.each(settings.itemActions, function( i, act ) {
+                  nestableItem += '<li class="dd-multiList-action-'+act.id+'" data-action-id="'+act.id+'">';
+                    nestableItem += act.html;
+                  nestableItem += "</li>";
+                });
+              nestableItem += '</ul>';
+            }
+
+            nestableItem += '<div class="dd-handle">';
+              nestableItem += '<div class="dd-multiListIcon">';
+                if(settings.icon){
+                  nestableItem += settings.icon;
+                }
+              nestableItem += '</div>';
+              if(settings.itemImage){
+                nestableItem += '<div class="multiListImage"><img class="img-responsive" src="'+elem.image+'"></div>';
               }
+
+              nestableItem += '<div class="multiListText">'+elem.name+'</div>';
             nestableItem += '</div>';
-          nestableItem += elem.name+'</div>';
           nestableItem += '</li>';
 
           multiListNestable.find('.dd-list').append(nestableItem);
@@ -109,11 +129,16 @@
         });
       }
 
+      var multiListImages = "";
+      if(settings.itemImage){
+        multiListImages = "multiListImages"
+      }
       var draggClass;
+
       if( settings.orientation === "V"){
-        draggClass = 'multiListDragel';
+        draggClass = multiListId+' multiListDragel '+multiListImages;
       }else{
-        draggClass = "multiListDragel multiList"+settings.orientation
+        draggClass = multiListId+' multiListDragel '+multiListImages+' multiList'+settings.orientation
       }
       multiListNestable.nestable({
         dragClass: draggClass,
