@@ -184,7 +184,6 @@
       });
 
       if(settings.itemActions){
-        console.log("aaaa");
         multiListNestable.find('.dd-multiListActions li').on("click", function (e) {
           var itemClicked = $(e.currentTarget).attr('data-action-id');
           $.each(settings.itemActions, function( i, act ) {
