@@ -187,10 +187,13 @@
   margin: 11px 5px 11px 5px;
 }
 
+
+.multiListSelect2 .select2-container{
+  display:block;
+}
 .multiListSelect2 .select2-selection__choice{
   display: none;
 }
-
 .multiListSelect2 .select2-results__option[aria-selected="true"]{
   display: none;
 }
