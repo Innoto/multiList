@@ -23,7 +23,7 @@
   ],
   "license": "GNU GPL3",
   "dependencies": {
-    "nestable2": "#v1.2.3",
+    "nestable2-old": "#v1.2.3",
     "select2": "#4.0.0"
   },
   "ignore": [
