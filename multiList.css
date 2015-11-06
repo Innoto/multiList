@@ -13,6 +13,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  min-height: 30px;
 }
 .dd-item,
 .dd-empty,
@@ -31,7 +32,7 @@
   margin: 5px 0;
   padding: 0;
   min-height: 30px;
-  background: #CCCCCC;
+  background: #f8f8f8;
   border: 2px dashed #b6bcbf;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -51,10 +52,7 @@
 
 .multiListNestable{
   border: 1px solid #CECECE;
-  background: #F5F5F5;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  background: #F8F8F8;
   padding: 5px;
   margin-bottom: 10px;
 }
@@ -71,12 +69,10 @@
 .multiListNestable .dd-item{
   padding: 2px 5px;
   margin: 2px;
-  background: #e4e4e4;
+  background: #fff;
   border :1px solid #CECECE;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
 }
+
 
 .multiListDragel.multiListH .dd-item,
 .multiListNestable.multiListH .dd-item{
@@ -103,11 +99,15 @@
 .multiListDragel .dd-item .unselectNestable,
 .multiListNestable .dd-item .unselectNestable {
   margin-left: 5px;
-  color: #999;
   cursor: pointer;
   display: inline-block;
   float:right;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 11px;
+}
+.multiListDragel .dd-item .unselectNestable:hover,
+.multiListNestable .dd-item .unselectNestable:hover {
+  color: #999;
 }
 
 .multiListDragel.multiListImages .dd-item .unselectNestable,
@@ -172,6 +172,11 @@
   float:left;
   margin-right:5px;
 }
+.multiListDragel .dd-item .dd-handle .multiListText,
+.multiListNestable .dd-item .dd-handle .multiListText{
+  display: inline-block;
+  padding: 0px 10px 0 5px;
+}
 
 .multiListNestable .dd-placeholder{
   width:100%;
@@ -190,6 +195,11 @@
 
 .multiListSelect2 .select2-container{
   display:block;
+}
+.multiListSelect2 .select2 .select2-selection{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .multiListSelect2 .select2-selection__choice{
   display: none;
