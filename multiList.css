@@ -93,6 +93,7 @@
 .multiListDragel.multiListH.multiListImages .dd-item .multiListImage img,
 .multiListNestable.multiListH.multiListImages .dd-item .multiListImage img{
   height: 140px;
+  width: 140px;
 }
 
 
@@ -141,7 +142,6 @@
   position: absolute;
   right: 20px;
   top: 7px;
-
   color: white;
   text-shadow: 1px 0 8px rgba(0,0,0, 0.8);
 }
@@ -180,16 +180,18 @@
 
 .multiListNestable .dd-placeholder{
   width:100%;
-  margin: 2px;
+  margin: 2px 2px 2px -2px;
+
 }
 .multiListNestable.multiListH .dd-placeholder{
   width:auto;
-  min-width:120px;
+  min-width: 120px;
+  margin: 2px;
   float:left;
 }
 .multiListNestable.multiListH.multiListImages .dd-placeholder{
-  min-width:240px;
-  margin: 11px 5px 11px 5px;
+
+  margin: 11px 21px 11px 21px;
 }
 
 
