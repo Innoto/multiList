@@ -24,7 +24,7 @@
   "license": "GNU GPL3",
   "dependencies": {
     "nestable2-old": "*",
-    "select2": "#4.0.0"
+    "select2": "#4.0.1"
   },
   "ignore": [
     "**/.*",
