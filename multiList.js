@@ -179,10 +179,11 @@
       selector.on("change", function (e) {
         that.reloadMultiList();
       });
+      /*
       multiListNestable.on("click", function (e) {
         selector.select2("open");
       });
-
+      */
       if(settings.itemActions){
         multiListNestable.find('.dd-multiListActions li').on("click", function (e) {
           var itemClicked = $(e.currentTarget).attr('data-action-id');
