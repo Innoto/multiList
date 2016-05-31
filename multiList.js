@@ -140,6 +140,7 @@
       }else{
         draggClass = multiListId+' multiListDragel '+multiListImages+' multiList'+settings.orientation
       }
+
       multiListNestable.nestable({
         dragClass: draggClass,
         maxDepth: 1,
@@ -169,8 +170,9 @@
     that.reloadMultiList = function( ){
       that.initOptionsValues();
       that.getSelectedValues();
+      //multiListNestable.nestable('destroyBinds');
       that.execNestable();
-      that.multiListBinds();
+      //that.multiListBinds();
     }
     /*
       Metedo con los binds genericos del MultiList
