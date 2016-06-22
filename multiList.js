@@ -181,7 +181,7 @@
       selector.on("change", function (e) {
         that.reloadMultiList();
       });
-      that.realoadBinds();
+      that.reloadBinds();
 
     }
     that.reloadBinds = function(){
