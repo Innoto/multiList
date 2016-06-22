@@ -170,22 +170,21 @@
     that.reloadMultiList = function( ){
       that.initOptionsValues();
       that.getSelectedValues();
-      //multiListNestable.nestable('destroyBinds');
       that.execNestable();
-      //that.multiListBinds();
+      that.reloadBinds();
     }
     /*
       Metedo con los binds genericos del MultiList
     */
     that.multiListBinds = function( ){
+
       selector.on("change", function (e) {
         that.reloadMultiList();
       });
-      /*
-      multiListNestable.on("click", function (e) {
-        selector.select2("open");
-      });
-      */
+      that.realoadBinds();
+
+    }
+    that.reloadBinds = function(){
       if(settings.itemActions){
         multiListNestable.find('.dd-multiListActions li').on("click", function (e) {
           var itemClicked = $(e.currentTarget).attr('data-action-id');
