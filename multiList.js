@@ -190,7 +190,7 @@
           var itemClicked = $(e.currentTarget).attr('data-action-id');
           $.each(settings.itemActions, function( i, act ) {
             if(itemClicked === act.id){
-              act.action( that.getMultilistItem( $(e.currentTarget).closest('li.dd-item').attr('data-id')));
+              act.action( that.getMultilistItem( $(e.currentTarget).closest('li.dd-item').attr('data-id')), selector );
             }
           });
         });
