@@ -161,7 +161,10 @@
     that.execSelect2 = function( ){
       selector.select2({
         tags: "true",
-        placeholder: settings.placeholder
+        placeholder: settings.placeholder,
+        createTag: function(params) {
+                return undefined;
+        }
       });
     }
     /*
