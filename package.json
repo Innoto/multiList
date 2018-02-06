@@ -1,0 +1,18 @@
+{
+  "name": "multilist-innoto",
+  "version": "0.0.1",
+  "description": "MultiList allows you to customize a selector with nestable list",
+  "main": [ "multiList.js", "multiList.css" ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Innoto/multiList.git"
+  },
+  "homepage": "https://github.com/Innoto/multiList",
+  "author": "Innoto",
+  "license": "GNU GPL3",
+  "keywords": [ "nestable", "select2", "multiList", "custom", "select", "nestable", "select", "order" ],
+  "dependencies": {
+    "nestable2-old": "1.2.3",
+    "select2": "4.0.1"
+  }
+}
